@@ -43,7 +43,7 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center" style={{
+    <div className="fixed inset-0 flex items-center justify-center lock-screen-exit" style={{
       backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
       backgroundSize: 'cover',
       backgroundPosition: 'center'
@@ -52,16 +52,16 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
       <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
       
       {/* Time and Date */}
-      <div className="absolute top-12 left-1/2 transform -translate-x-1/2 text-center text-white z-10">
-        <div className="text-6xl font-light mb-2">{formatTime(time)}</div>
-        <div className="text-lg opacity-80">{formatDate(time)}</div>
+      <div className="absolute top-12 left-1/2 transform -translate-x-1/2 text-center text-white z-10 animate-fade-in">
+        <div className="text-6xl font-light mb-2 transition-all duration-300 ease-apple">{formatTime(time)}</div>
+        <div className="text-lg opacity-80 transition-all duration-300 ease-apple">{formatDate(time)}</div>
       </div>
 
       {/* Main login area */}
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
         {/* Profile picture area */}
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-4xl font-bold text-white shadow-2xl">
+          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-4xl font-bold text-white shadow-2xl transition-all duration-500 ease-apple-spring hover:scale-105">
             DK
           </div>
         </div>
@@ -77,7 +77,7 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-80 h-12 bg-white/10 border-white/30 text-white placeholder-white/60 text-center backdrop-blur-sm rounded-full focus:bg-white/20 focus:border-white/50"
+              className="w-80 h-12 bg-white/10 border-white/30 text-white placeholder-white/60 text-center backdrop-blur-sm rounded-full focus:bg-white/20 focus:border-white/50 transition-all duration-300 ease-apple-spring focus:scale-105"
               autoFocus
             />
             {showHint && (

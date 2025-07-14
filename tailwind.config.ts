@@ -105,12 +105,117 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'app-open': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.3) translateY(100px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
+				},
+				'app-close': {
+					'0%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'scale(0.3) translateY(100px)'
+					}
+				},
+				'app-minimize': {
+					'0%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'scale(0.05) translateY(200px)'
+					}
+				},
+				'app-restore': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.05) translateY(200px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
+				},
+				'unlock-slide': {
+					'0%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'scale(1.1) translateY(-50px)'
+					}
+				},
+				'desktop-enter': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.95) translateY(50px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
+				},
+				'dock-bounce': {
+					'0%': {
+						transform: 'translateY(0) scale(1)'
+					},
+					'50%': {
+						transform: 'translateY(-8px) scale(1.1)'
+					},
+					'100%': {
+						transform: 'translateY(0) scale(1)'
+					}
+				},
+				'spring-bounce': {
+					'0%': {
+						transform: 'scale(1)'
+					},
+					'10%': {
+						transform: 'scale(0.9)'
+					},
+					'40%': {
+						transform: 'scale(1.03)'
+					},
+					'60%': {
+						transform: 'scale(0.98)'
+					},
+					'80%': {
+						transform: 'scale(1.01)'
+					},
+					'100%': {
+						transform: 'scale(1)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				'app-open': 'app-open 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'app-close': 'app-close 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+				'app-minimize': 'app-minimize 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+				'app-restore': 'app-restore 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'unlock-slide': 'unlock-slide 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+				'desktop-enter': 'desktop-enter 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'dock-bounce': 'dock-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'spring-bounce': 'spring-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+			},
+			transitionTimingFunction: {
+				'apple': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+				'apple-spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'apple-ease': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'apple-bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
 			}
 		}
 	},

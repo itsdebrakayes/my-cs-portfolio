@@ -92,16 +92,39 @@
   .dock-icon {
     @apply relative w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 
            flex items-center justify-center text-white text-xl cursor-pointer
-           transition-all duration-300 hover:scale-110 hover:bg-white/20;
+           transition-all duration-300 ease-apple hover:scale-110 hover:bg-white/20;
   }
   
   .dock-icon:hover {
-    transform: translateY(-8px) scale(1.1);
+    transform: translateY(-12px) scale(1.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .dock-icon:active {
+    transform: translateY(-8px) scale(1.05);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .window {
     @apply bg-background/95 backdrop-blur-xl border border-white/20 rounded-xl 
-           shadow-[var(--shadow-window)] resize overflow-hidden;
+           shadow-[var(--shadow-window)] resize overflow-hidden
+           transition-all duration-300 ease-apple;
+  }
+  
+  .window-opening {
+    animation: app-open 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  .window-closing {
+    animation: app-close 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+  }
+  
+  .window-minimizing {
+    animation: app-minimize 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .window-restoring {
+    animation: app-restore 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
   
   .window-header {
@@ -113,7 +136,15 @@
   }
   
   .window-control {
-    @apply w-3 h-3 rounded-full cursor-pointer;
+    @apply w-3 h-3 rounded-full cursor-pointer transition-all duration-200 ease-apple;
+  }
+  
+  .window-control:hover {
+    transform: scale(1.1);
+  }
+  
+  .window-control:active {
+    transform: scale(0.95);
   }
   
   .window-control.close {
@@ -137,6 +168,23 @@
   .wallpaper {
     background: var(--wallpaper-gradient), 
                 url('/api/placeholder/1920/1080') center/cover;
+  }
+  
+  .smooth-drag {
+    transition: none;
+    will-change: transform;
+  }
+  
+  .smooth-drag:not(.dragging) {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .lock-screen-exit {
+    animation: unlock-slide 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .desktop-enter {
+    animation: desktop-enter 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 }
 

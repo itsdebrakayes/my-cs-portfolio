@@ -66,7 +66,9 @@ const Dock = ({ onAppClick, openWindows, onWindowRestore }: DockProps) => {
               <div key={app.id} className="relative group">
                 <button
                   onClick={() => handleAppClick(app.id)}
-                  className={`relative w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:-translate-y-2 ${
+                  className={`relative w-16 h-16 rounded-xl flex items-center justify-center 
+                    transition-all duration-300 ease-apple-spring hover:scale-125 hover:-translate-y-3 
+                    active:scale-105 active:-translate-y-1 ${
                     isOpen ? 'bg-white/20' : 'hover:bg-white/10'
                   } ${isMinimized ? 'bg-yellow-500/20' : ''}`}
                   title={app.label}
@@ -92,7 +94,7 @@ const Dock = ({ onAppClick, openWindows, onWindowRestore }: DockProps) => {
                 </button>
                 
                 {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-2 py-1 bg-gray-900/90 backdrop-blur-sm text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none" style={{
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-2 py-1 bg-gray-900/90 backdrop-blur-sm text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 ease-apple whitespace-nowrap pointer-events-none" style={{
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)'
                 }}>
                   {app.label}

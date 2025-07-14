@@ -139,7 +139,7 @@ const Desktop = () => {
   };
 
   return (
-    <div className="h-screen w-screen relative overflow-hidden" style={{
+    <div className="h-screen w-screen relative overflow-hidden desktop-enter" style={{
       backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
       backgroundSize: 'cover',
       backgroundPosition: 'center'
@@ -149,7 +149,7 @@ const Desktop = () => {
         <div className="flex items-center space-x-4">
           <button 
             onClick={returnToLockScreen}
-            className="hover:bg-white/10 px-2 py-1 rounded transition-colors"
+            className="hover:bg-white/10 px-2 py-1 rounded transition-all duration-200 ease-apple hover:scale-105"
           >
             🍎
           </button>
@@ -179,7 +179,7 @@ const Desktop = () => {
         <div className="absolute top-10 right-10">
           <button
             onClick={() => openApp('notes')}
-            className="bg-yellow-400 hover:bg-yellow-300 rounded-lg p-3 shadow-lg transition-colors"
+            className="bg-yellow-400 hover:bg-yellow-300 rounded-lg p-3 shadow-lg transition-all duration-300 ease-apple-spring hover:scale-105 animate-spring-bounce"
           >
             📝 Open Notes
           </button>

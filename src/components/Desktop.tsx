@@ -8,7 +8,7 @@ import SkillsApp from "./apps/SkillsApp";
 import ExperienceApp from "./apps/ExperienceApp";
 import ResumeApp from "./apps/ResumeApp";
 import ContactApp from "./apps/ContactApp";
-import JamAIApp from "./apps/JamAIApp";
+import PhotosApp from "./apps/PhotosApp";
 import TrashBin from "./TrashBin";
 
 export interface OpenWindow {
@@ -85,12 +85,12 @@ const Desktop = () => {
         position: { x: 300, y: 160 },
         isMinimized: false
       },
-      jamai: {
-        id: "jamai",
-        title: "JamAI Assistant",
-        component: JamAIApp,
-        defaultSize: { width: 500, height: 600 },
-        position: { x: 350, y: 100 },
+      gallery: {
+        id: "gallery",
+        title: "JamAI Gallery",
+        component: PhotosApp,
+        defaultSize: { width: 800, height: 600 },
+        position: { x: 300, y: 160 },
         isMinimized: false
       },
       notes: {

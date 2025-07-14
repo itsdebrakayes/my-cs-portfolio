@@ -1,193 +1,153 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Send, Bot, User, Sparkles } from "lucide-react";
-
-interface Message {
-  id: number;
-  sender: "user" | "ai";
-  content: string;
-  timestamp: Date;
-}
+import { Bot, Sparkles, Brain, MessageCircle, Code, Zap } from "lucide-react";
 
 const JamAIApp = () => {
-  const [messages, setMessages] = useState<Message[]>([
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const aiGallery = [
     {
       id: 1,
-      sender: "ai",
-      content: "Hey there! 👋 I'm JamAI, Debra-Kaye's AI assistant. I can tell you about her projects, skills, experience, or just chat! What would you like to know?",
-      timestamp: new Date()
+      title: "JamAI Assistant Interface",
+      description: "The main chat interface of JamAI showing cultural knowledge responses",
+      category: "Interface Design",
+      icon: <MessageCircle className="w-8 h-8 text-blue-500" />,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Natural Language Processing", "Real-time Responses", "Cultural Context"]
+    },
+    {
+      id: 2,
+      title: "AI Model Architecture",
+      description: "Visual representation of the LangChain integration powering JamAI",
+      category: "Backend Systems",
+      icon: <Brain className="w-8 h-8 text-purple-500" />,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["LangChain Framework", "Vector Embeddings", "Memory Management"]
+    },
+    {
+      id: 3,
+      title: "Cultural Data Training",
+      description: "Jamaican cultural data visualization and AI training sets",
+      category: "Data Science",
+      icon: <Code className="w-8 h-8 text-green-500" />,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Cultural Dataset", "Training Pipeline", "Knowledge Base"]
+    },
+    {
+      id: 4,
+      title: "Language Processing Engine",
+      description: "Real-time language processing for Jamaican Patois understanding",
+      category: "NLP Technology",
+      icon: <Sparkles className="w-8 h-8 text-yellow-500" />,
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Patois Recognition", "Sentiment Analysis", "Context Understanding"]
+    },
+    {
+      id: 5,
+      title: "Tourism Recommendations",
+      description: "AI-powered suggestions for Jamaican attractions and experiences",
+      category: "Recommendation System",
+      icon: <Bot className="w-8 h-8 text-cyan-500" />,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Smart Recommendations", "Location Based", "Personalized Suggestions"]
+    },
+    {
+      id: 6,
+      title: "Voice Integration",
+      description: "Siri-like voice interface for hands-free JamAI interactions",
+      category: "Voice Technology",
+      icon: <Zap className="w-8 h-8 text-red-500" />,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Speech Recognition", "Voice Synthesis", "Hands-free Operation"]
     }
-  ]);
-  const [inputValue, setInputValue] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const quickCommands = [
-    "Tell me about her projects",
-    "What are her skills?",
-    "Show her experience",
-    "Tell me a fun fact"
   ];
 
-  const getAIResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
-    
-    if (lowerMessage.includes("project")) {
-      return "Debra-Kaye has worked on some amazing projects! Her AI-powered task manager uses LangChain for natural language processing, and she built a real-time chat platform with end-to-end encryption. She's also created a music recommendation engine using ML algorithms. Each project showcases her full-stack skills and AI expertise!";
-    }
-    
-    if (lowerMessage.includes("skill") || lowerMessage.includes("technology")) {
-      return "She's got a solid tech stack! Frontend: React, TypeScript, Tailwind CSS. Backend: Node.js, Python, PostgreSQL. AI/ML: LangChain, OpenAI API, TensorFlow. She's also AWS certified and loves working with modern tools like Docker and Figma. Her specialty is definitely in AI engineering!";
-    }
-    
-    if (lowerMessage.includes("experience") || lowerMessage.includes("work")) {
-      return "Debra-Kaye is currently a Senior Frontend Developer at TechCorp Inc., where she led development of an AI-powered dashboard that increased user engagement by 40%! Previously, she was at StartupXYZ building scalable chat platforms. She has a CS degree from UC Berkeley and loves mentoring other developers.";
-    }
-    
-    if (lowerMessage.includes("fun") || lowerMessage.includes("interesting")) {
-      return "Here's a fun fact: She codes better with jazz music playing! ☕ She drinks 4-6 cups of coffee a day (debugging fuel!), and she's currently diving deep into LangChain. She believes clean code is just as important as clean data. Oh, and she's a Jazmine Sullivan fan! 🎵";
-    }
-    
-    if (lowerMessage.includes("contact") || lowerMessage.includes("hire")) {
-      return "Interested in working with her? You can reach out via email at debra@example.com, check out her GitHub, or connect on LinkedIn. She's always open to discussing new opportunities and interesting projects!";
-    }
-    
-    if (lowerMessage.includes("hello") || lowerMessage.includes("hi")) {
-      return "Hello! 👋 I'm excited to tell you about Debra-Kaye. She's a talented full-stack developer with a passion for AI. What specific aspect would you like to know about?";
-    }
-    
-    return "That's an interesting question! While I know a lot about Debra-Kaye's professional work and background, I'd recommend reaching out to her directly for more specific details. She's very responsive and loves talking about technology and AI! 🤖";
-  };
-
-  const handleSendMessage = async () => {
-    if (!inputValue.trim()) return;
-
-    const userMessage: Message = {
-      id: Date.now(),
-      sender: "user",
-      content: inputValue,
-      timestamp: new Date()
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue("");
-    setIsTyping(true);
-
-    // Simulate AI thinking time
-    setTimeout(() => {
-      const aiResponse: Message = {
-        id: Date.now() + 1,
-        sender: "ai",
-        content: getAIResponse(inputValue),
-        timestamp: new Date()
-      };
-      
-      setMessages(prev => [...prev, aiResponse]);
-      setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
-  };
-
-  const handleQuickCommand = (command: string) => {
-    setInputValue(command);
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSendMessage();
-    }
-  };
-
   return (
-    <div className="flex flex-col h-full text-white">
-      {/* Header */}
-      <div className="flex items-center space-x-2 mb-4">
-        <Bot className="text-purple-300" size={20} />
-        <h2 className="text-lg font-bold">JamAI Assistant</h2>
-        <Sparkles className="text-yellow-400" size={16} />
-      </div>
-
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto space-y-3 mb-4 max-h-80">
-        {messages.map((message) => (
-          <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <Card className={`max-w-[80%] ${message.sender === 'user' ? 'bg-blue-600/80' : 'bg-white/10'} border-white/20`}>
-              <CardContent className="p-3">
-                <div className="flex items-start space-x-2">
-                  {message.sender === 'ai' ? (
-                    <Bot size={16} className="text-purple-300 mt-0.5 flex-shrink-0" />
-                  ) : (
-                    <User size={16} className="text-blue-300 mt-0.5 flex-shrink-0" />
-                  )}
-                  <p className="text-sm leading-relaxed">{message.content}</p>
-                </div>
-                <p className="text-xs text-white/50 mt-2">
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </p>
-              </CardContent>
-            </Card>
+    <div className="h-full overflow-hidden bg-gray-50">
+      <div className="h-full flex flex-col">
+        {/* Header */}
+        <div className="flex-shrink-0 bg-white border-b border-gray-200 px-6 py-4">
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2">
+              <img 
+                src="/lovable-uploads/9ad84fc0-5d63-41d4-b0ca-6d35abaa377c.png" 
+                alt="JamAI Logo" 
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-800">JamAI Gallery</h1>
+                <p className="text-sm text-gray-600">AI-Powered Jamaican Cultural Assistant</p>
+              </div>
+            </div>
           </div>
-        ))}
-        
-        {isTyping && (
-          <div className="flex justify-start">
-            <Card className="bg-white/10 border-white/20">
-              <CardContent className="p-3">
-                <div className="flex items-center space-x-2">
-                  <Bot size={16} className="text-purple-300" />
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="flex-1 overflow-auto p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {aiGallery.map((item) => (
+              <Card 
+                key={item.id} 
+                className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
+                onClick={() => setSelectedImage(selectedImage === item.id ? null : item.id)}
+              >
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <Badge variant="secondary" className="bg-white/90 text-gray-800">
+                      {item.category}
+                    </Badge>
+                  </div>
+                  <div className="absolute top-3 right-3 bg-white/90 rounded-full p-2">
+                    {item.icon}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                
+                <CardContent className="p-4">
+                  <h3 className="font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                    {item.description}
+                  </p>
+                  
+                  {selectedImage === item.id && (
+                    <div className="space-y-3 animate-fade-in">
+                      <div className="flex flex-wrap gap-1">
+                        {item.features.map((feature, index) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {feature}
+                          </Badge>
+                        ))}
+                      </div>
+                      <Button 
+                        size="sm" 
+                        className="w-full bg-blue-600 hover:bg-blue-700"
+                      >
+                        View in JamAI
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        )}
-        <div ref={messagesEndRef} />
-      </div>
+        </div>
 
-      {/* Quick Commands */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
-        {quickCommands.map((command, index) => (
-          <Button
-            key={index}
-            variant="ghost"
-            size="sm"
-            className="text-xs h-8 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white border border-white/20"
-            onClick={() => handleQuickCommand(command)}
-          >
-            {command}
-          </Button>
-        ))}
-      </div>
-
-      {/* Input */}
-      <div className="flex space-x-2">
-        <Input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Ask me anything about Debra-Kaye..."
-          className="flex-1 bg-white/10 border-white/20 text-white placeholder-white/50 text-sm h-9"
-        />
-        <Button 
-          onClick={handleSendMessage}
-          disabled={!inputValue.trim() || isTyping}
-          className="bg-purple-600 hover:bg-purple-700 h-9 px-3"
-        >
-          <Send size={14} />
-        </Button>
+        {/* Footer */}
+        <div className="flex-shrink-0 bg-white border-t border-gray-200 px-6 py-3">
+          <div className="text-center">
+            <p className="text-xs text-gray-500">
+              🔮 JamAI Assistant - Your AI-powered guide to Jamaican culture and tourism
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

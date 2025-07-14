@@ -6,40 +6,31 @@ import { ExternalLink, Github, Folder, Star } from "lucide-react";
 const ProjectsApp = () => {
   const projects = [
     {
-      name: "AI-Powered Task Manager",
-      description: "Smart task management with natural language processing and priority optimization",
-      technologies: ["React", "Python", "LangChain", "OpenAI"],
+      name: "Yaad Explorer",
+      description: "Tourism platform showcasing Jamaica's hidden gems and cultural experiences with interactive maps and local insights",
+      technologies: ["React", "Node.js", "MongoDB", "Google Maps API"],
       status: "Featured",
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      category: "AI"
-    },
-    {
-      name: "Real-time Chat Platform",
-      description: "WebSocket-based chat application with end-to-end encryption",
-      technologies: ["Node.js", "Socket.io", "React", "MongoDB"],
-      status: "Active",
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/itsdebrakayes/yaad-explorer",
+      liveUrl: "https://yaad-explorer.vercel.app",
       category: "Web"
     },
     {
-      name: "Music Recommendation Engine",
-      description: "ML-powered music discovery using collaborative filtering and audio analysis",
-      technologies: ["Python", "TensorFlow", "Spotify API", "FastAPI"],
+      name: "JamAI Assistant",
+      description: "AI-powered chatbot providing comprehensive information about Jamaican culture, tourism, and local recommendations",
+      technologies: ["Python", "LangChain", "OpenAI", "FastAPI"],
       status: "Featured",
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/itsdebrakayes/jamai-assistant",
+      liveUrl: "https://jamai.example.com",
       category: "AI"
     },
     {
-      name: "Personal Finance Tracker",
-      description: "Automated expense tracking with smart categorization and insights",
-      technologies: ["React Native", "Supabase", "TypeScript", "Chart.js"],
-      status: "Active",
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      category: "Mobile"
+      name: "Supreme Court Management System",
+      description: "Internal system for case management and court operations developed during my internship",
+      technologies: ["PHP", "MySQL", "JavaScript", "Hardware Integration"],
+      status: "Professional",
+      githubUrl: "#",
+      liveUrl: "#",
+      category: "Web"
     }
   ];
 

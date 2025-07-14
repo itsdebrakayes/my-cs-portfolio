@@ -10,10 +10,10 @@ const SkillsApp = () => {
       icon: Code,
       color: "text-blue-300",
       skills: [
-        { name: "React", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Tailwind CSS", level: 88 },
-        { name: "Next.js", level: 80 }
+        { name: "JavaScript", level: 90 },
+        { name: "React", level: 85 },
+        { name: "HTML/CSS", level: 95 },
+        { name: "Tailwind CSS", level: 88 }
       ]
     },
     {
@@ -21,10 +21,10 @@ const SkillsApp = () => {
       icon: Database,
       color: "text-green-300",
       skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Python", level: 90 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MongoDB", level: 75 }
+        { name: "PHP", level: 85 },
+        { name: "Python", level: 80 },
+        { name: "Node.js", level: 75 },
+        { name: "MySQL", level: 85 }
       ]
     },
     {
@@ -32,21 +32,21 @@ const SkillsApp = () => {
       icon: Brain,
       color: "text-purple-300",
       skills: [
-        { name: "LangChain", level: 85 },
-        { name: "OpenAI API", level: 90 },
-        { name: "TensorFlow", level: 70 },
-        { name: "Scikit-learn", level: 75 }
+        { name: "LangChain", level: 80 },
+        { name: "OpenAI API", level: 85 },
+        { name: "Machine Learning", level: 70 },
+        { name: "Natural Language Processing", level: 75 }
       ]
     },
     {
-      title: "Tools",
+      title: "Hardware & Tools",
       icon: Wrench,
       color: "text-orange-300",
       skills: [
-        { name: "Git", level: 95 },
-        { name: "Docker", level: 75 },
-        { name: "AWS", level: 70 },
-        { name: "Figma", level: 85 }
+        { name: "Git", level: 90 },
+        { name: "Hardware Assembly", level: 80 },
+        { name: "AV Systems", level: 75 },
+        { name: "System Integration", level: 85 }
       ]
     }
   ];

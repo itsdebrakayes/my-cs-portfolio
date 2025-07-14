@@ -43,9 +43,13 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 flex items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center" style={{
+      backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
       {/* Blurred background overlay */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
       
       {/* Time and Date */}
       <div className="absolute top-12 left-1/2 transform -translate-x-1/2 text-center text-white z-10">
@@ -63,7 +67,7 @@ const LockScreen = ({ onUnlock }: LockScreenProps) => {
         </div>
 
         {/* Name */}
-        <h1 className="text-3xl font-light text-white mb-8">Debra-Kaye Smith</h1>
+        <h1 className="text-2xl font-light text-white mb-8">Debra-Kaye Smith</h1>
 
         {/* Password input */}
         <form onSubmit={handlePasswordSubmit} className="space-y-4">

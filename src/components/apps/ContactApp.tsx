@@ -40,23 +40,23 @@ const ContactApp = () => {
   const contactMethods = [
     {
       label: "Email",
-      value: "debra@example.com",
+      value: "debrakayesam@gmail.com",
       icon: Mail,
-      action: () => copyToClipboard("debra@example.com"),
+      action: () => copyToClipboard("debrakayesam@gmail.com"),
       color: "text-blue-300"
     },
     {
       label: "GitHub",
-      value: "github.com/debrakaye",
+      value: "github.com/itsdebrakayes",
       icon: Github,
-      action: () => window.open("https://github.com", "_blank"),
+      action: () => window.open("https://github.com/itsdebrakayes", "_blank"),
       color: "text-purple-300"
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/debrakaye",
+      value: "linkedin.com/in/debra-kaye-smith",
       icon: Linkedin,
-      action: () => window.open("https://linkedin.com", "_blank"),
+      action: () => window.open("https://www.linkedin.com/in/debra-kaye-smith/", "_blank"),
       color: "text-blue-400"
     }
   ];

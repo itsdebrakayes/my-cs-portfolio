@@ -5,6 +5,7 @@ import AppWindow from "./AppWindow";
 import AboutMeApp from "./apps/AboutMeApp";
 import ProjectsApp from "./apps/ProjectsApp";
 import SkillsApp from "./apps/SkillsApp";
+import ExperienceApp from "./apps/ExperienceApp";
 import ResumeApp from "./apps/ResumeApp";
 import ContactApp from "./apps/ContactApp";
 import JamAIApp from "./apps/JamAIApp";
@@ -58,6 +59,14 @@ const Desktop = () => {
         component: SkillsApp,
         defaultSize: { width: 700, height: 550 },
         position: { x: 200, y: 140 },
+        isMinimized: false
+      },
+      experience: {
+        id: "experience",
+        title: "Experience",
+        component: ExperienceApp,
+        defaultSize: { width: 750, height: 600 },
+        position: { x: 180, y: 120 },
         isMinimized: false
       },
       resume: {
@@ -117,7 +126,9 @@ const Desktop = () => {
   };
 
   return (
-    <div className="h-screen w-screen wallpaper relative overflow-hidden">
+    <div className="h-screen w-screen relative overflow-hidden" style={{
+      background: 'linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%)'
+    }}>
       {/* Desktop Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
       

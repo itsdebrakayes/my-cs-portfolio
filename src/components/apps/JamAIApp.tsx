@@ -65,10 +65,10 @@ const JamAIApp = () => {
   ];
 
   return (
-    <div className="h-full overflow-hidden bg-gray-50">
+    <div className="h-full overflow-hidden bg-background">
       <div className="h-full flex flex-col">
         {/* Header */}
-        <div className="flex-shrink-0 bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex-shrink-0 bg-card border-b border-border px-6 py-4">
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-2">
               <img 
@@ -77,8 +77,8 @@ const JamAIApp = () => {
                 className="w-8 h-8 rounded-full object-cover"
               />
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">JamAI Gallery</h1>
-                <p className="text-sm text-gray-600">AI-Powered Jamaican Cultural Assistant</p>
+                <h1 className="text-2xl font-bold text-foreground">JamAI Gallery</h1>
+                <p className="text-sm text-muted-foreground">AI-Powered Jamaican Cultural Assistant</p>
               </div>
             </div>
           </div>
@@ -110,10 +110,10 @@ const JamAIApp = () => {
                 </div>
                 
                 <CardContent className="p-4">
-                  <h3 className="font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                     {item.description}
                   </p>
                   
@@ -128,7 +128,7 @@ const JamAIApp = () => {
                       </div>
                       <Button 
                         size="sm" 
-                        className="w-full bg-blue-600 hover:bg-blue-700"
+                        className="w-full"
                       >
                         View in JamAI
                       </Button>
@@ -141,9 +141,9 @@ const JamAIApp = () => {
         </div>
 
         {/* Footer */}
-        <div className="flex-shrink-0 bg-white border-t border-gray-200 px-6 py-3">
+        <div className="flex-shrink-0 bg-card border-t border-border px-6 py-3">
           <div className="text-center">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               🔮 JamAI Assistant - Your AI-powered guide to Jamaican culture and tourism
             </p>
           </div>

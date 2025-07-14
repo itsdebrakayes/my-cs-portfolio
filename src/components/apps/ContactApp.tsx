@@ -121,15 +121,15 @@ const ContactApp = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col text-gray-800">
+    <div className="h-full flex flex-col text-foreground">
       {/* Tab Navigation */}
-      <div className="flex border-b border-gray-200 bg-gray-50">
+      <div className="flex border-b border-border bg-background">
         <button
           onClick={() => setActiveTab("messages")}
           className={`px-4 py-2 text-sm font-medium ${
             activeTab === "messages" 
-              ? "border-b-2 border-blue-500 text-blue-600" 
-              : "text-gray-600 hover:text-gray-800"
+              ? "border-b-2 border-primary text-primary" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           Messages
@@ -138,8 +138,8 @@ const ContactApp = () => {
           onClick={() => setActiveTab("contact")}
           className={`px-4 py-2 text-sm font-medium ${
             activeTab === "contact" 
-              ? "border-b-2 border-blue-500 text-blue-600" 
-              : "text-gray-600 hover:text-gray-800"
+              ? "border-b-2 border-primary text-primary" 
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           Contact Info

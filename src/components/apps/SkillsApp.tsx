@@ -63,33 +63,33 @@ const SkillsApp = () => {
   ];
 
   return (
-    <div className="space-y-4 text-white">
+    <div className="space-y-4 text-foreground">
       {/* Header */}
       <div className="text-center mb-6">
         <h2 className="text-xl font-bold mb-2">Skills & Technologies</h2>
-        <p className="text-white/70 text-sm">My technical expertise and proficiency levels</p>
+        <p className="text-muted-foreground text-sm">My technical expertise and proficiency levels</p>
       </div>
 
       {/* Skills Grid */}
       <div className="grid grid-cols-2 gap-4">
         {skillCategories.map((category, index) => (
-          <Card key={index} className="bg-white/5 border-white/20">
+          <Card key={index} className="bg-card border-border">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center space-x-2 text-sm">
                 <category.icon size={16} className={category.color} />
-                <span className="text-white">{category.title}</span>
+                <span className="text-foreground">{category.title}</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {category.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-white/80">{skill.name}</span>
-                    <span className="text-xs text-white/60">{skill.level}%</span>
+                    <span className="text-xs text-foreground">{skill.name}</span>
+                    <span className="text-xs text-muted-foreground">{skill.level}%</span>
                   </div>
                   <Progress 
                     value={skill.level} 
-                    className="h-1.5 bg-white/10"
+                    className="h-1.5"
                   />
                 </div>
               ))}
@@ -99,14 +99,14 @@ const SkillsApp = () => {
       </div>
 
       {/* Certifications */}
-      <Card className="bg-white/5 border-white/20">
+      <Card className="bg-card border-border">
         <CardHeader className="pb-3">
-          <CardTitle className="text-sm text-blue-300">Certifications</CardTitle>
+          <CardTitle className="text-sm text-primary">Certifications</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {certifications.map((cert, index) => (
-              <Badge key={index} variant="outline" className="text-xs border-white/30 text-white/70">
+              <Badge key={index} variant="outline" className="text-xs">
                 {cert}
               </Badge>
             ))}

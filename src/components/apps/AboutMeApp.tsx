@@ -19,21 +19,21 @@ const AboutMeApp = () => {
   ];
 
   return (
-    <div className="space-y-6 text-gray-800">
+    <div className="space-y-6 text-foreground">
       {/* Header */}
       <div className="text-center">
-        <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg mb-4">
+        <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-2xl font-bold text-primary-foreground shadow-lg mb-4">
           DK
         </div>
-        <h1 className="text-2xl font-bold mb-2 text-gray-800">Debra-Kaye Smith</h1>
-        <p className="text-gray-600">Full Stack Developer & AI Enthusiast</p>
+        <h1 className="text-2xl font-bold mb-2 text-foreground">Debra-Kaye Smith</h1>
+        <p className="text-muted-foreground">Full Stack Developer & AI Enthusiast</p>
       </div>
 
       {/* Mission Control */}
-      <Card className="bg-white/50 border-gray-200">
+      <Card className="bg-card border-border">
         <CardContent className="p-4">
-          <h3 className="text-lg font-semibold mb-3 text-blue-600">Mission Control</h3>
-          <p className="text-gray-700 leading-relaxed">
+          <h3 className="text-lg font-semibold mb-3 text-primary">Mission Control</h3>
+          <p className="text-foreground leading-relaxed">
             I'm passionate about building intelligent applications that make a real difference. 
             Currently focusing on AI engineering with LangChain, creating solutions that bridge 
             the gap between complex AI capabilities and user-friendly experiences.
@@ -44,13 +44,13 @@ const AboutMeApp = () => {
       {/* Quick Stats */}
       <div className="grid grid-cols-2 gap-3">
         {quickStats.map((stat, index) => (
-          <Card key={index} className="bg-white/5 border-white/20">
+          <Card key={index} className="bg-card border-border">
             <CardContent className="p-3">
               <div className="flex items-center space-x-2">
-                <stat.icon size={16} className="text-blue-300" />
+                <stat.icon size={16} className="text-primary" />
                 <div>
-                  <p className="text-xs text-white/60">{stat.label}</p>
-                  <p className="text-sm font-medium text-white">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  <p className="text-sm font-medium text-foreground">{stat.value}</p>
                 </div>
               </div>
             </CardContent>
@@ -59,12 +59,12 @@ const AboutMeApp = () => {
       </div>
 
       {/* Fun Facts */}
-      <Card className="bg-white/5 border-white/20">
+      <Card className="bg-card border-border">
         <CardContent className="p-4">
-          <h3 className="text-lg font-semibold mb-3 text-blue-300">Random Facts</h3>
+          <h3 className="text-lg font-semibold mb-3 text-primary">Random Facts</h3>
           <div className="space-y-2">
             {funFacts.map((fact, index) => (
-              <Badge key={index} variant="secondary" className="block w-full text-left p-2 bg-white/10 text-white border-white/20">
+              <Badge key={index} variant="secondary" className="block w-full text-left p-2">
                 {fact}
               </Badge>
             ))}

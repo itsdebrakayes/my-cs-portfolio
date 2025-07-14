@@ -1,4 +1,4 @@
-import { User, Briefcase, Brain, FileText, Mail, Lightbulb, Camera } from "lucide-react";
+import { User, Briefcase, Brain, FileText, Mail, Lightbulb } from "lucide-react";
 import { OpenWindow } from "./Desktop";
 
 interface DockProps {
@@ -15,8 +15,17 @@ const Dock = ({ onAppClick, openWindows, onWindowRestore }: DockProps) => {
     { id: "experience", icon: Brain, label: "Experience" },
     { id: "resume", icon: FileText, label: "Resume" },
     { id: "contact", icon: Mail, label: "Contact" },
-    { id: "jamai", icon: () => <span className="text-2xl">🔮</span>, label: "JamAI Assistant" },
-    { id: "gallery", icon: Camera, label: "Photos" },
+    { 
+      id: "jamai", 
+      icon: () => (
+        <img 
+          src="/lovable-uploads/9ad84fc0-5d63-41d4-b0ca-6d35abaa377c.png" 
+          alt="JamAI Logo" 
+          className="w-8 h-8 rounded-full object-cover"
+        />
+      ), 
+      label: "JamAI Assistant" 
+    },
     { id: "notes", icon: () => <span className="text-2xl">📝</span>, label: "Notes" },
   ];
 
@@ -25,9 +34,9 @@ const Dock = ({ onAppClick, openWindows, onWindowRestore }: DockProps) => {
     if (openWindow && openWindow.isMinimized) {
       onWindowRestore(appId);
     } else {
-      // Special handling for JamAI - open gallery instead
+      // Open JamAI Assistant directly
       if (appId === "jamai") {
-        onAppClick("gallery");
+        onAppClick("jamai");
       } else {
         onAppClick(appId);
       }

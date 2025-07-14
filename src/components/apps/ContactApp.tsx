@@ -239,80 +239,91 @@ const ContactApp = () => {
           </div>
         </div>
       ) : (
-        <div className="flex-1 p-6 space-y-6">
-          {/* Contact Methods */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
-            <div className="grid gap-3">
-              {contactMethods.map((method, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer" onClick={method.action}>
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <method.icon size={20} className={method.color} />
-                        <div>
-                          <p className="font-medium text-gray-800">{method.label}</p>
-                          <p className="text-sm text-gray-600">{method.value}</p>
-                        </div>
-                      </div>
-                      {method.label === "Email" ? (
-                        <Copy size={16} className="text-gray-400" />
-                      ) : (
-                        <ExternalLink size={16} className="text-gray-400" />
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+        <div className="flex-1 flex flex-col bg-gray-50">
+          {/* iMessage-style Header */}
+          <div className="p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+            <h2 className="text-lg font-semibold">Contact Info</h2>
+            <p className="text-blue-100 text-sm">Here's how to reach me!</p>
+          </div>
+
+          {/* iMessage-style Chat */}
+          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+            {/* Email Message */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800 mb-1">📧 Email me at:</p>
+                <button 
+                  onClick={() => copyToClipboard("debrakayesam@gmail.com")}
+                  className="text-blue-600 underline hover:text-blue-800 text-sm font-medium"
+                >
+                  debrakayesam@gmail.com
+                </button>
+              </div>
+            </div>
+
+            {/* GitHub Message */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800 mb-1">💻 Check out my code:</p>
+                <button 
+                  onClick={() => window.open("https://github.com/itsdebrakayes", "_blank")}
+                  className="text-blue-600 underline hover:text-blue-800 text-sm font-medium"
+                >
+                  @itsdebrakayes
+                </button>
+              </div>
+            </div>
+
+            {/* LinkedIn Message */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800 mb-1">💼 Connect professionally:</p>
+                <button 
+                  onClick={() => window.open("https://www.linkedin.com/in/debra-kaye-smith/", "_blank")}
+                  className="text-blue-600 underline hover:text-blue-800 text-sm font-medium"
+                >
+                  LinkedIn Profile
+                </button>
+              </div>
+            </div>
+
+            {/* Location Message */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800">📍 Based in Kingston, Jamaica 🇯🇲</p>
+              </div>
+            </div>
+
+            {/* Fun Message */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800">🚀 Always excited to discuss new opportunities and cool projects!</p>
+              </div>
+            </div>
+
+            {/* Response Time */}
+            <div className="flex justify-start">
+              <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm">
+                <p className="text-sm text-gray-800">⚡ I typically respond within 24 hours</p>
+              </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-blue-600">Send a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Input
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <Input
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                />
-                <Textarea
-                  name="message"
-                  placeholder="Your message..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  required
-                />
-                <Button type="submit" className="w-full">
-                  <Send size={16} className="mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          {/* Message Input Area */}
+          <div className="p-4 bg-white border-t border-gray-200">
+            <div className="flex space-x-2">
+              <input 
+                type="text" 
+                placeholder="Send me a message..." 
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                disabled
+              />
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm hover:bg-blue-600 transition-colors">
+                Send
+              </button>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">Click the links above to get in touch!</p>
+          </div>
         </div>
       )}
     </div>

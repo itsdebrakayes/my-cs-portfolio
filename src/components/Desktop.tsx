@@ -10,6 +10,11 @@ import ResumeApp from "./apps/ResumeApp";
 import ContactApp from "./apps/ContactApp";
 import JamAIApp from "./apps/JamAIApp";
 import TrashBin from "./TrashBin";
+import SimsWidget from "./widgets/SimsWidget";
+import JamaicaMapWidget from "./widgets/JamaicaMapWidget";
+import BooksWidget from "./widgets/BooksWidget";
+import MusicWidget from "./widgets/MusicWidget";
+import PinterestWidget from "./widgets/PinterestWidget";
 
 export interface OpenWindow {
   id: string;
@@ -173,6 +178,13 @@ const Desktop = () => {
       
       {/* Trash Bin */}
       <TrashBin />
+
+      {/* Desktop Widgets */}
+      <SimsWidget />
+      <JamaicaMapWidget />
+      <BooksWidget />
+      <MusicWidget />
+      <PinterestWidget />
 
       {/* Notes App - Auto-open on desktop load */}
       {openWindows.length === 0 && (

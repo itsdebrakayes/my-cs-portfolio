@@ -12,7 +12,7 @@ const JamaicaAppWidget = () => {
       <div className="p-4 h-full flex items-center justify-center">
         {/* IMAGE ADDED: Jamaica flag shape */}
         <img 
-          src="/lovable-uploads/5b05c2ad-d2c0-46f7-9b7c-0297ccd07d9c.png" 
+          src="public/images/jamaica_app.png" 
           alt="Jamaica Flag Shape"
           className="w-full h-full object-contain"
         />

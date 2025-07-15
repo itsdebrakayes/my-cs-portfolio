@@ -12,7 +12,7 @@ const SimsWidget = () => {
       <div className="w-full h-full flex items-center justify-center p-4">
         {/* IMAGE ADDED: The Sims 4 logo */}
         <img 
-          src="public/images/sims_logo.png" 
+          src="/images/sims_logo.png" 
           alt="The Sims 4" 
           className="w-full h-full object-contain"
         />

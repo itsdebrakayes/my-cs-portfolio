@@ -11,7 +11,7 @@ const PinterestWidget = () => {
     >
       {/* IMAGE ADDED: Pinterest mood board image */}
       <img 
-        src="/lovable-uploads/67302dab-275c-4b6a-9522-21f8125cbb1a.png" 
+        src="/images/pinterest_widget.png" 
         alt="Pinterest Mood Board" 
         className="w-full h-full object-cover"
       />

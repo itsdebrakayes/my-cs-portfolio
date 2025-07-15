@@ -19,7 +19,7 @@ const Dock = ({ onAppClick, openWindows, onWindowRestore }: DockProps) => {
       id: "jamai", 
       icon: () => (
         <img 
-          src="public/images/JAMAi Logo.png" 
+          src="/images/JAMAi Logo.png" 
           alt="JamAI Logo" 
           className="w-8 h-8 rounded-full object-cover"
         />

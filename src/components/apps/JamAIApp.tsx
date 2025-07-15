@@ -2,150 +2,197 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bot, Sparkles, Brain, MessageCircle, Code, Zap } from "lucide-react";
+import { Bot, Sparkles, Brain, MessageCircle, Code, Zap, Star } from "lucide-react";
 
 const JamAIApp = () => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const aiGallery = [
+  const categories = ["All", "Interface Design", "Technical", "Data Science", "AI/ML", "Tourism Tech", "Voice AI"];
+
+  const aiFeatures = [
     {
       id: 1,
-      title: "JamAI Assistant Interface",
-      description: "The main chat interface of JamAI showing cultural knowledge responses",
-      category: "Interface Design",
-      icon: <MessageCircle className="w-8 h-8 text-blue-500" />,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Natural Language Processing", "Real-time Responses", "Cultural Context"]
+      title: "Natural Language Processing",
+      description: "Real-time language processing for Jamaican Patois understanding",
+      category: "AI/ML",
+      color: "from-purple-500 to-purple-700",
+      bgImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Patois Recognition", "Sentiment Analysis", "Context Understanding"],
+      status: "Active"
     },
     {
       id: 2,
-      title: "AI Model Architecture",
-      description: "Visual representation of the LangChain integration powering JamAI",
-      category: "Backend Systems",
-      icon: <Brain className="w-8 h-8 text-purple-500" />,
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["LangChain Framework", "Vector Embeddings", "Memory Management"]
+      title: "Tourism Recommendation Engine",
+      description: "AI-powered suggestions for Jamaican attractions and experiences",
+      category: "Tourism Tech",
+      color: "from-red-500 to-pink-600",
+      bgImage: "https://images.unsplash.com/photo-1501919115144-3de29aa4b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Smart Recommendations", "Location Based", "Personalized Suggestions"],
+      status: "Featured"
     },
     {
       id: 3,
-      title: "Cultural Data Training",
-      description: "Jamaican cultural data visualization and AI training sets",
-      category: "Data Science",
-      icon: <Code className="w-8 h-8 text-green-500" />,
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Cultural Dataset", "Training Pipeline", "Knowledge Base"]
+      title: "Voice Recognition System",
+      description: "Siri-like voice interface for hands-free JamAI interactions",
+      category: "Voice AI",
+      color: "from-blue-500 to-cyan-600",
+      bgImage: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Speech Recognition", "Voice Synthesis", "Hands-free Operation"],
+      status: "Beta"
     },
     {
       id: 4,
-      title: "Language Processing Engine",
-      description: "Real-time language processing for Jamaican Patois understanding",
-      category: "NLP Technology",
-      icon: <Sparkles className="w-8 h-8 text-yellow-500" />,
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Patois Recognition", "Sentiment Analysis", "Context Understanding"]
+      title: "Cultural Knowledge Base",
+      description: "Comprehensive database of Jamaican culture, history, and traditions",
+      category: "Data Science",
+      color: "from-green-500 to-teal-600",
+      bgImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Cultural Dataset", "Historical Context", "Traditional Knowledge"],
+      status: "Active"
     },
     {
       id: 5,
-      title: "Tourism Recommendations",
-      description: "AI-powered suggestions for Jamaican attractions and experiences",
-      category: "Recommendation System",
-      icon: <Bot className="w-8 h-8 text-cyan-500" />,
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Smart Recommendations", "Location Based", "Personalized Suggestions"]
+      title: "Chat Interface Design",
+      description: "Modern, intuitive chat interface with Jamaican cultural elements",
+      category: "Interface Design",
+      color: "from-indigo-500 to-purple-600",
+      bgImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Responsive Design", "Cultural Themes", "User Experience"],
+      status: "Active"
     },
     {
       id: 6,
-      title: "Voice Integration",
-      description: "Siri-like voice interface for hands-free JamAI interactions",
-      category: "Voice Technology",
-      icon: <Zap className="w-8 h-8 text-red-500" />,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Speech Recognition", "Voice Synthesis", "Hands-free Operation"]
+      title: "AI Model Architecture",
+      description: "LangChain-powered backend with advanced reasoning capabilities",
+      category: "Technical",
+      color: "from-orange-500 to-red-600",
+      bgImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["LangChain Framework", "Vector Embeddings", "Memory Management"],
+      status: "Core"
     }
   ];
 
+  const filteredFeatures = selectedCategory === "All" 
+    ? aiFeatures 
+    : aiFeatures.filter(feature => feature.category === selectedCategory);
+
   return (
-    <div className="h-full overflow-hidden bg-background">
-      <div className="h-full flex flex-col">
-        {/* Header */}
-        <div className="flex-shrink-0 bg-card border-b border-border px-6 py-4">
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center space-x-2">
-              <img 
-                src="/lovable-uploads/9ad84fc0-5d63-41d4-b0ca-6d35abaa377c.png" 
-                alt="JamAI Logo" 
-                className="w-8 h-8 rounded-full object-cover"
-              />
-              <div>
-                <h1 className="text-2xl font-bold text-foreground">JamAI Gallery</h1>
-                <p className="text-sm text-muted-foreground">AI-Powered Jamaican Cultural Assistant</p>
-              </div>
-            </div>
+    <div className="h-full bg-background overflow-hidden">
+      {/* Header */}
+      <div className="bg-card border-b border-border p-4">
+        <div className="flex items-center space-x-3 mb-4">
+          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
+            <Bot className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-foreground">JamAI Gallery</h1>
+            <p className="text-sm text-muted-foreground">AI Assistant Visualizations & Interface Designs</p>
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="flex-1 overflow-auto p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiGallery.map((item) => (
-              <Card 
-                key={item.id} 
-                className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
-                onClick={() => setSelectedImage(selectedImage === item.id ? null : item.id)}
-              >
-                <div className="relative">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <Badge variant="secondary" className="bg-white/90 text-gray-800">
-                      {item.category}
-                    </Badge>
-                  </div>
-                  <div className="absolute top-3 right-3 bg-white/90 rounded-full p-2">
-                    {item.icon}
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              size="sm"
+              variant={selectedCategory === category ? "default" : "outline"}
+              onClick={() => setSelectedCategory(category)}
+              className="text-xs px-3 py-1.5 rounded-full"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      {/* Features Grid */}
+      <div className="p-6 overflow-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredFeatures.map((feature, index) => (
+            <Card 
+              key={feature.id} 
+              className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="relative h-48 overflow-hidden">
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${feature.bgImage})` }}
+                />
+                
+                {/* Gradient Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-80`} />
+                
+                {/* Status Badge */}
+                <div className="absolute top-3 left-3">
+                  <Badge 
+                    variant={feature.status === "Featured" ? "default" : "secondary"}
+                    className="text-xs font-medium"
+                  >
+                    {feature.status === "Featured" && <Star className="w-3 h-3 mr-1" />}
+                    {feature.status}
+                  </Badge>
+                </div>
+
+                {/* Category Badge */}
+                <div className="absolute top-3 right-3">
+                  <Badge variant="outline" className="bg-white/90 text-gray-800 text-xs border-0">
+                    {feature.category}
+                  </Badge>
+                </div>
+
+                {/* Icon */}
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    {feature.id === 1 && <Brain className="w-5 h-5 text-white" />}
+                    {feature.id === 2 && <Bot className="w-5 h-5 text-white" />}
+                    {feature.id === 3 && <Zap className="w-5 h-5 text-white" />}
+                    {feature.id === 4 && <Code className="w-5 h-5 text-white" />}
+                    {feature.id === 5 && <MessageCircle className="w-5 h-5 text-white" />}
+                    {feature.id === 6 && <Sparkles className="w-5 h-5 text-white" />}
                   </div>
                 </div>
+              </div>
+
+              <CardContent className="p-4 bg-card">
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                  {feature.description}
+                </p>
                 
-                <CardContent className="p-4">
-                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                    {item.description}
-                  </p>
-                  
-                  {selectedImage === item.id && (
-                    <div className="space-y-3 animate-fade-in">
-                      <div className="flex flex-wrap gap-1">
-                        {item.features.map((feature, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button 
-                        size="sm" 
-                        className="w-full"
-                      >
-                        View in JamAI
-                      </Button>
+                {/* Features List */}
+                <div className="space-y-2 mb-4">
+                  {feature.features.map((feat, featIndex) => (
+                    <div key={featIndex} className="flex items-center space-x-2">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <span className="text-xs text-muted-foreground">{feat}</span>
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  ))}
+                </div>
+
+                <Button 
+                  size="sm" 
+                  variant="outline"
+                  className="w-full text-xs"
+                >
+                  Explore Feature
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        {/* Footer */}
-        <div className="flex-shrink-0 bg-card border-t border-border px-6 py-3">
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground">
-              🔮 JamAI Assistant - Your AI-powered guide to Jamaican culture and tourism
-            </p>
+        {/* Footer Info */}
+        <div className="mt-8 text-center">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-card rounded-full border border-border">
+            <Bot className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">
+              JamAI Assistant - Your AI-powered guide to Jamaican culture and tourism
+            </span>
           </div>
         </div>
       </div>

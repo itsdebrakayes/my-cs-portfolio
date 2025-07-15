@@ -22,7 +22,12 @@ const MusicWidget = () => {
           {/* IMAGE TO ADD: Album cover or artist photo will go here */}
           <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg mr-3 flex items-center justify-center text-2xl overflow-hidden">
             {/* PLACEHOLDER: Replace this div with <img src="/path-to-image.jpg" alt="Album Cover" className="w-full h-full object-cover" /> */}
-            <div className="w-full h-full bg-gray-400 flex items-center justify-center text-gray-600 text-xs">IMG</div>
+            <div className="w-full h-full bg-gray-400 flex items-center justify-center text-gray-600 text-xs">
+              <img src=
+              "public/images/emotional_cover.png" 
+              alt="Album Cover" 
+              className="w-full h-full object-cover" />
+            </div>
           </div>
           <div className="flex-1">
             <div className="text-white text-sm font-medium">Emotional</div>

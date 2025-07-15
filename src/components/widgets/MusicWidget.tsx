@@ -23,7 +23,7 @@ const MusicWidget = () => {
           <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg mr-3 flex items-center justify-center text-2xl overflow-hidden">
             {/* PLACEHOLDER: Replace this div with <img src="/path-to-image.jpg" alt="Album Cover" className="w-full h-full object-cover" /> */}
             <div className="w-full h-full bg-gray-400 flex items-center justify-center text-gray-600 text-xs">
-              <img src="/images/emotional_cover.png" 
+              <img src="/images/Emotional.png" 
               alt="Album Cover" 
               className="w-full h-full object-cover" />
             </div>

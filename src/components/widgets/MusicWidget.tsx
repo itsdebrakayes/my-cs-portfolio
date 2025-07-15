@@ -6,7 +6,7 @@ const MusicWidget = () => {
 
   return (
     <div 
-      className="fixed bottom-32 right-6 w-64 h-48 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="fixed bottom-20 right-6 w-64 h-48 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

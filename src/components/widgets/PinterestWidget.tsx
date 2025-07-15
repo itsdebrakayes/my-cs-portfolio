@@ -2,57 +2,42 @@ import { useState } from "react";
 
 const PinterestWidget = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [currentPin, setCurrentPin] = useState(0);
 
-  const pins = [
-    { title: "Tech Setup", emoji: "💻", color: "bg-blue-500" },
-    { title: "Coding Aesthetic", emoji: "⌨️", color: "bg-purple-500" },
-    { title: "UI/UX Inspo", emoji: "🎨", color: "bg-pink-500" },
-    { title: "Workspace", emoji: "🖥️", color: "bg-green-500" },
-    { title: "Jamaica Vibes", emoji: "🏝️", color: "bg-yellow-500" },
-    { title: "Romance Books", emoji: "📚", color: "bg-rose-500" }
+  const boards = [
+    { title: "Cute Stuff", pins: "315 Pins", color: "bg-pink-500" },
+    { title: "Gym Stuff", pins: "57 Pins", color: "bg-green-500" },
+    { title: "Nails", pins: "345 Pins", color: "bg-purple-500" },
+    { title: "Sims CC", pins: "473 Pins", color: "bg-blue-500" }
   ];
 
   return (
     <div 
-      className="fixed top-80 left-6 w-48 h-56 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="fixed top-8 left-1/2 transform -translate-x-1/2 w-80 h-20 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="p-4 h-full flex flex-col">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="text-white text-lg font-bold">📌 Pinterest</div>
-          <div className="text-white/70 text-xs">Board</div>
+      <div className="p-3 h-full flex items-center">
+        {/* Pinterest Icon */}
+        <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+          <span className="text-white text-sm font-bold">P</span>
         </div>
         
-        {/* Pin Grid */}
-        <div className="flex-1 grid grid-cols-2 gap-2">
-          {pins.slice(0, 4).map((pin, index) => (
+        {/* Boards Grid */}
+        <div className="flex-1 grid grid-cols-4 gap-2">
+          {boards.map((board, index) => (
             <div
               key={index}
-              className={`${pin.color} rounded-lg p-2 flex flex-col items-center justify-center text-white transition-all duration-200 hover:scale-105 cursor-pointer`}
-              onClick={() => setCurrentPin(index)}
+              className="bg-gray-100 rounded-lg p-2 text-center hover:bg-gray-200 transition-colors"
             >
-              <div className="text-2xl mb-1">{pin.emoji}</div>
-              <div className="text-xs text-center font-medium">{pin.title}</div>
+              <div className="text-xs font-medium text-gray-800 truncate">{board.title}</div>
+              <div className="text-xs text-gray-500">{board.pins}</div>
             </div>
           ))}
         </div>
         
-        {/* Current Focus */}
-        <div className="mt-2 text-white/80 text-xs text-center">
-          ✨ {pins[currentPin].title} Ideas
-        </div>
-        
-        {/* Vision Board Counter */}
-        <div className="mt-1 text-white/60 text-xs text-center">
-          {pins.length} pins • 3 boards
-        </div>
-        
         {isHovered && (
-          <div className="absolute inset-0 bg-red-600/20 rounded-2xl flex items-center justify-center">
-            <div className="text-white text-sm font-medium">View Board</div>
+          <div className="absolute inset-0 bg-red-500/10 rounded-xl flex items-center justify-center">
+            <div className="text-red-600 text-sm font-medium">Open Pinterest</div>
           </div>
         )}
       </div>

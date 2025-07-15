@@ -16,7 +16,7 @@ const JamAIApp = () => {
       description: "Real-time language processing for Jamaican Patois understanding",
       category: "AI/ML",
       color: "from-purple-500 to-purple-700",
-      bgImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/nlp-processing.jpg",
       features: ["Patois Recognition", "Sentiment Analysis", "Context Understanding"],
       status: "Active"
     },
@@ -26,7 +26,7 @@ const JamAIApp = () => {
       description: "AI-powered suggestions for Jamaican attractions and experiences",
       category: "Tourism Tech",
       color: "from-red-500 to-pink-600",
-      bgImage: "https://images.unsplash.com/photo-1501919115144-3de29aa4b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/tourism-recommendations.jpg",
       features: ["Smart Recommendations", "Location Based", "Personalized Suggestions"],
       status: "Featured"
     },
@@ -36,7 +36,7 @@ const JamAIApp = () => {
       description: "Siri-like voice interface for hands-free JamAI interactions",
       category: "Voice AI",
       color: "from-blue-500 to-cyan-600",
-      bgImage: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/voice-recognition.jpg",
       features: ["Speech Recognition", "Voice Synthesis", "Hands-free Operation"],
       status: "Beta"
     },
@@ -46,7 +46,7 @@ const JamAIApp = () => {
       description: "Comprehensive database of Jamaican culture, history, and traditions",
       category: "Data Science",
       color: "from-green-500 to-teal-600",
-      bgImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/cultural-database.jpg",
       features: ["Cultural Dataset", "Historical Context", "Traditional Knowledge"],
       status: "Active"
     },
@@ -56,7 +56,7 @@ const JamAIApp = () => {
       description: "Modern, intuitive chat interface with Jamaican cultural elements",
       category: "Interface Design",
       color: "from-indigo-500 to-purple-600",
-      bgImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/chat-interface.jpg",
       features: ["Responsive Design", "Cultural Themes", "User Experience"],
       status: "Active"
     },
@@ -66,7 +66,7 @@ const JamAIApp = () => {
       description: "LangChain-powered backend with advanced reasoning capabilities",
       category: "Technical",
       color: "from-orange-500 to-red-600",
-      bgImage: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      bgImage: "/images/jamai/ai-architecture.jpg",
       features: ["LangChain Framework", "Vector Embeddings", "Memory Management"],
       status: "Core"
     }

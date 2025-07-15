@@ -39,7 +39,7 @@ const ProjectsApp = () => {
         { date: "2024-04", phase: "Testing & Launch", description: "User testing, bug fixes, and deployment to production" }
       ],
       features: ["Interactive Maps", "Cultural Insights", "Local Recommendations", "Mobile Responsive"],
-      images: ["https://images.unsplash.com/photo-1501919115144-3de29aa4b1b1", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"]
+      images: ["/images/projects/yaad-explorer-1.jpg", "/images/projects/yaad-explorer-2.jpg"]
     },
     {
       id: "jamai-assistant",
@@ -59,7 +59,7 @@ const ProjectsApp = () => {
         { date: "2024-08", phase: "API Development", description: "FastAPI backend and OpenAI integration" }
       ],
       features: ["Natural Language Processing", "Cultural Context", "Tourism Recommendations", "Voice Integration"],
-      images: ["https://images.unsplash.com/photo-1488590528505-98d2b5aba04b", "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"]
+      images: ["/images/projects/jamai-interface.jpg", "/images/projects/jamai-architecture.jpg"]
     },
     {
       id: "court-system",
@@ -79,7 +79,7 @@ const ProjectsApp = () => {
         { date: "2023-09", phase: "Hardware Integration", description: "Integration with court hardware systems" }
       ],
       features: ["Case Management", "Document Processing", "Hardware Integration", "User Management"],
-      images: ["https://images.unsplash.com/photo-1589829545856-d10d557cf95f", "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"]
+      images: ["/images/projects/court-system-1.jpg", "/images/projects/court-system-2.jpg"]
     }
   ];
 

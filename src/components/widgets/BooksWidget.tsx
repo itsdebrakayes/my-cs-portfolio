@@ -4,12 +4,12 @@ const BooksWidget = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const books = [
-    { title: "JavaScript: The Good Parts", color: "bg-yellow-600", spine: "h-20" },
-    { title: "The Duke and I", color: "bg-purple-600", spine: "h-24" },
-    { title: "Clean Code", color: "bg-blue-600", spine: "h-22" },
-    { title: "Romancing Mr. Bridgerton", color: "bg-pink-600", spine: "h-20" },
-    { title: "React in Action", color: "bg-cyan-600", spine: "h-24" },
-    { title: "An Offer From a Gentleman", color: "bg-rose-600", spine: "h-22" }
+    { title: "JavaScript: The Good Parts", shortTitle: "JS", color: "bg-yellow-600", spine: "h-20" },
+    { title: "The Duke and I", shortTitle: "Duke", color: "bg-purple-600", spine: "h-24" },
+    { title: "Clean Code", shortTitle: "Clean", color: "bg-blue-600", spine: "h-22" },
+    { title: "Romancing Mr. Bridgerton", shortTitle: "Romance", color: "bg-pink-600", spine: "h-20" },
+    { title: "React in Action", shortTitle: "React", color: "bg-cyan-600", spine: "h-24" },
+    { title: "An Offer From a Gentleman", shortTitle: "Offer", color: "bg-rose-600", spine: "h-22" }
   ];
 
   return (
@@ -28,8 +28,12 @@ const BooksWidget = () => {
           {books.map((book, index) => (
             <div
               key={index}
-              className={`${book.color} ${book.spine} w-4 rounded-t-sm shadow-sm border-r border-black/20`}
-            />
+              className={`${book.color} ${book.spine} w-4 rounded-t-sm shadow-sm border-r border-black/20 flex items-center justify-center relative`}
+            >
+              <span className="text-white text-xs font-bold transform -rotate-90 whitespace-nowrap absolute">
+                {book.shortTitle}
+              </span>
+            </div>
           ))}
           
           {/* Right bookend */}

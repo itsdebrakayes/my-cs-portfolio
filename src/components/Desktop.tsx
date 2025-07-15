@@ -12,6 +12,7 @@ import JamAIApp from "./apps/JamAIApp";
 import TrashBin from "./TrashBin";
 import SimsWidget from "./widgets/SimsWidget";
 import JamaicaMapWidget from "./widgets/JamaicaMapWidget";
+import JamaicaAppWidget from "./widgets/JamaicaAppWidget";
 import BooksWidget from "./widgets/BooksWidget";
 import MusicWidget from "./widgets/MusicWidget";
 import PinterestWidget from "./widgets/PinterestWidget";
@@ -182,6 +183,7 @@ const Desktop = () => {
       {/* Desktop Widgets */}
       <SimsWidget />
       <JamaicaMapWidget />
+      <JamaicaAppWidget />
       <BooksWidget />
       <MusicWidget />
       <PinterestWidget />

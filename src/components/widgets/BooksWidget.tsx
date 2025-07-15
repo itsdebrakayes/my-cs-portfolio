@@ -11,7 +11,7 @@ const BooksWidget = () => {
     >
       {/* IMAGE ADDED: Bookshelf with book collection */}
       <img 
-        src="public/images/bookshelf_widget.png" 
+        src="/images/bookshelf_widget.png" 
         alt="Bookshelf" 
         className="w-full h-full object-cover"
       />

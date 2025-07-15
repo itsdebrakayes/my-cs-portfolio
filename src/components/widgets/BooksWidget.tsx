@@ -14,7 +14,7 @@ const BooksWidget = () => {
 
   return (
     <div 
-      className="fixed bottom-40 right-6 w-64 h-32 bg-gray-900 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="fixed top-60 right-6 w-64 h-32 bg-gray-900 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

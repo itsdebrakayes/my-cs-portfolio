@@ -5,13 +5,16 @@ const SimsWidget = () => {
 
   return (
     <div 
-      className="fixed top-80 left-6 w-16 h-16 bg-gradient-to-br from-blue-400 to-teal-500 rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer"
+      className="fixed bottom-20 left-6 w-64 h-32 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full h-full flex items-center justify-center">
-        {/* Sims Diamond Logo */}
-        <div className="w-8 h-8 bg-white rotate-45 rounded-sm shadow-lg"></div>
+      <div className="w-full h-full flex items-center justify-center p-4">
+        <img 
+          src="/lovable-uploads/ce19ae2b-57f9-4147-8956-3a6003a131ca.png" 
+          alt="The Sims 4" 
+          className="w-full h-full object-contain"
+        />
         
         {isHovered && (
           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">

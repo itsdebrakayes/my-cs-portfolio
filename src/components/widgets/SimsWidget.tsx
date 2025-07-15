@@ -5,7 +5,7 @@ const SimsWidget = () => {
 
   return (
     <div 
-      className="fixed bottom-20 left-6 w-64 h-32 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="fixed bottom-40 left-6 w-64 h-32 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

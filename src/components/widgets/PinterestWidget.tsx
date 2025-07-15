@@ -12,7 +12,7 @@ const PinterestWidget = () => {
 
   return (
     <div 
-      className="fixed top-8 left-1/2 transform -translate-x-1/2 w-80 h-20 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+      className="fixed top-20 left-6 right-6 h-24 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

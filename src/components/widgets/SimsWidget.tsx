@@ -10,6 +10,7 @@ const SimsWidget = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="w-full h-full flex items-center justify-center p-4">
+        {/* IMAGE ADDED: The Sims 4 logo */}
         <img 
           src="/lovable-uploads/ce19ae2b-57f9-4147-8956-3a6003a131ca.png" 
           alt="The Sims 4" 

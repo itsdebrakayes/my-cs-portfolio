@@ -9,6 +9,7 @@ const PinterestWidget = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* IMAGE ADDED: Pinterest mood board image */}
       <img 
         src="/lovable-uploads/67302dab-275c-4b6a-9522-21f8125cbb1a.png" 
         alt="Pinterest Mood Board" 
